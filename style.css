@@ -1,0 +1,26 @@
+.title{
+    font-family: Tahoma, serif;
+    background: linear-gradient(to right, red, orange, yellow, green, cyan, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.plain{
+    font-family: Tahoma, serif;
+    color: white
+}
+
+.graph-side {
+    height: 80vh;
+    width: 40%;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    /*background-color: rgba(255, 255, 255, 0.82);*/
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* Элементы будут располагаться по горизонтали */
+}

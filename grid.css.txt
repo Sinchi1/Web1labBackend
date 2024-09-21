@@ -1,0 +1,32 @@
+body {
+  
+  --wM: 1px;        /* Толщина линии */
+  --xM: 10px;       /* Отступ по ширине */
+  --yM: 10px;       /* Отступ по высоте */
+  --cM: #ccc;       /* Цвет линии */
+  
+  --wB: 1px;        /* Толщина линии */
+  --xB: 100px;      /* Отступ по ширине */
+  --yB: 100px;      /* Отступ по высоте */
+  --cB: #333; /* Цвет линии */
+  
+  background-position: -1px 0;
+  background-image:
+    linear-gradient(90deg, var(--cB) var(--wB), transparent var(--wB)),
+    linear-gradient(0deg, var(--cB) var(--wB), transparent var(--wB)),
+    linear-gradient(90deg, var(--cM) var(--wM), transparent var(--wM)),
+    linear-gradient(0deg, var(--cM) var(--wM), transparent var(--wM));
+  background-size: 
+    var(--xB) 100%, 100% var(--yB),
+    var(--xM) 100%, 100% var(--yM);
+}
+
+#block {
+  width: 150px;
+  height: 150px;
+  border: 1px solid red;
+  box-sizing: border-box;
+  position: absolute;
+  left: 100px;
+  top: 50px;
+}

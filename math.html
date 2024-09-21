@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Координатная плоскость</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url("sad.jpg");
+            background-size: cover; /* Изображение растягивается пропорционально, заполняя экран */
+            background-position: center; /* Центрирует изображение */
+            background-repeat: no-repeat; /* Избегаем повторений */
+            width: 100vw; /* 100% ширины экрана */
+            height: 100vh; /* 100% высоты экрана */
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h2 class="title">Трусковский Георгий Вариант 413818</h2>
+</div>
+<div class="plain">
+<div class="container">
+    <div class="input-side">
+        <form>
+            <div class="input-group">
+                <p>Выберите X:</p>
+                <div id="coord-x" class="radio-group">
+                    <label><input type="radio" name="x" value="-5">-5</label>
+                    <label><input type="radio" name="x" value="-4">-4</label>
+                    <label><input type="radio" name="x" value="-3">-3</label>
+                    <br>
+                    <label><input type="radio" name="x" value="-2">-2</label>
+                    <label><input type="radio" name="x" value="-1">-1</label>
+                    <label><input type="radio" name="x" value="0">0</label>
+                    <br>
+                    <label><input type="radio" name="x" value="1">1</label>
+                    <label><input type="radio" name="x" value="2">2</label>
+                    <label><input type="radio" name="x" value="3">3</label>
+                </div>
+                <br>
+                <label for="coord-y">Введите Y: </label>
+                <input type="text" id="coord-y" name="coord-y" />
+                <br>
+                <br>
+                <div>
+                <label for="coord-x"> Введите X:</label>
+                <input type="text" idx="coord-x" name="coord-x" />
+                </div>
+            </div>
+            <br>
+        <div class="btn">
+            <button id="send-btn" type="submit">Отправить</button>
+        </div>
+        <br>
+        <div class="input-log" id="input-log">
+            <!--Поле для вывода ошибок при вводе-->
+        </div>
+        </form>
+    </div>
+    <!--таблица для результатов-->
+    <div class="graph-side">
+        <svg xmlns="http://www.w3.org/2000/svg" width="650" height="650">
+
+            <!--точка для отрисовки попадания-->
+            <circle cx="300" cy="300" class="dot" id="dot" r="5" visibility="visible" stroke="black" fill="black" stroke-opacity="0" fill-opacity="0"></circle>
+
+            <!-- Оси со стрелками -->
+            <line stroke="gray" x1="0" x2="600" y1="300" y2="300" />
+            <line stroke="gray" x1="300" x2="300" y1="0" y2="600" />
+            <polygon points="300,0 294,15 306,15" stroke="white" />
+            <polygon points="600,300 585,306 585,294" stroke="white" />
+
+            <!-- Засечки -->
+            <line stroke="gray" x1="400" x2="400" y1="310" y2="290" />
+            <line stroke="gray" x1="500" x2="500" y1="310" y2="290" />
+
+            <line stroke="gray" x1="200" x2="200" y1="310" y2="290" />
+            <line stroke="gray" x1="100" x2="100" y1="310" y2="290" />
+
+            <line stroke="gray" x1="290" x2="310" y1="100" y2="100" />
+            <line stroke="gray" x1="290" x2="310" y1="200" y2="200" />
+
+            <line stroke="gray" x1="290" x2="310" y1="400" y2="400" />
+            <line stroke="gray" x1="290" x2="310" y1="500" y2="500" />
+
+            <text x="385" y="330">R/2</text>
+            <text x="495" y="330">R</text>
+
+            <text x="90" y="330">-R</text>
+            <text x="180" y="330">-R/2</text>
+
+            <text x="255" y="205">R/2</text>
+            <text x="270" y="105">R</text>
+
+            <text x="250" y="405">-R/2</text>
+            <text x="265" y="505">-R</text>
+
+            <text x="310" y="15">Y</text>
+            <text x="585" y="290">X</text>
+
+            <!--Прямоугольник-->
+            <rect x="300" y="200" width="200" height="100" fill="#0a0eff" fill-opacity="0.1" stroke="#0c0fff"/>
+
+            <!--Треугольник-->
+            <polygon points="200,300 300,400 300,300" fill="#0a0eff" fill-opacity="0.1" stroke="#0c0fff"/>
+
+            <!--Полукруг-->
+            <path d="M 200 300 A 100 100, 0, 0, 1, 300 200 L 300 300 Z" fill="#0a0eff" fill-opacity="0.1"
+                  stroke="#0c0fff" />
+        </svg>
+    </div>
+    <div class="results-side">
+        <table class="res-table" id="res-table">
+            <tr>
+                <th>Попали?</th>
+                <th>X</th>
+                <th>Y</th>
+                <th>R</th>
+                <th>Время работы (мс)</th>
+                <th>Время</th>
+            </tr>
+        </table>
+    </div>
+    <!--график-->
+</div>
+<br>
+<br>
+<p>
+<a  href="https://annimon.com/code/5206"> не баньте меня пажулйста </a>
+</p>
+</div>
+</body>
+</html>
+
