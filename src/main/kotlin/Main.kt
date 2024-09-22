@@ -1,6 +1,7 @@
 package org.example
 
 import com.fastcgi.FCGIInterface
+import com.sun.org.apache.xpath.internal.operations.Bool
 
 fun main() {
 
@@ -26,6 +27,7 @@ fun main() {
                 if (req.isNotEmpty()){
                     var values: LinkedHashMap<String, String> = getValuesOfReq(req)
                     val hit: Boolean
+                    val isShot: Boolean
                 }
             }
         }
