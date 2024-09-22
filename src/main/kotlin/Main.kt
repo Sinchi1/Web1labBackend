@@ -25,6 +25,7 @@ fun main() {
             if (req != null) {
                 if (req.isNotEmpty()){
                     var values: LinkedHashMap<String, String> = getValuesOfReq(req)
+                    val hit: Boolean
                 }
             }
         }
