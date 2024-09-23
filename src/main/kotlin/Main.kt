@@ -2,13 +2,15 @@ package org.example
 
 import com.fastcgi.FCGIInterface
 import org.example.Managers.Checker
+import java.nio.charset.StandardCharsets
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 fun main() {
 
 
-    var checker: Checker = Checker();
-    var methodName: String
-    var acTime: Long
+    var checker = Checker();
+    var methodName: String?
     var fcgiInterface = FCGIInterface()
 
 
@@ -22,24 +24,38 @@ fun main() {
          return map;
      }
 
-    fun sentResponse(hit: Boolean, x: String, y: String, r:String, ) {}
+    fun sentResponse(hit: Boolean, x: String, y: String, r:String, time: Long): String? {
+        val responseTime: Long = (time - System.nanoTime()) / 10000000
+        val responseString: String = """
+                {"result":"%s","x":"%s","y":"%s","r":"%s","time":"%s","workTime":"%s"}
+                """.formatted(hit, x, y, r, responseTime,  LocalDateTime.now().format(
+            DateTimeFormatter.ofPattern("HH:mm:ss")));
+        return """
+                Content-Type: application/json; charset=utf-8
+                Content-Length: %d
+                
+                %s
+                """.formatted(responseString.encodeToByteArray().count(), responseString);
+    }
+
 
     while (fcgiInterface.FCGIaccept() >= 0){
-        methodName = FCGIInterface.request.params.getProperty("REQUEST_METHOD")
+        try {
+            methodName = FCGIInterface.request.params.getProperty("REQUEST_METHOD")
+        } catch (e: Exception) {
+            continue
+        }
         if (methodName.equals("GET")){
-            var req: String? = FCGIInterface.request.params.getProperty("QUERY_STRING")
-            if (req != null) {
-                if (req.isNotEmpty()){
-                    var values: LinkedHashMap<String, String> = getValuesOfReq(req)
-                    try{
-                        val hit: Boolean = checker.checkHit(Integer.parseInt(values.get("x")),Integer.parseInt(values.get("y")),Integer.parseInt(values.get("r")))
-                    }catch (e: Exception){
-                        println("Smth went wrong bro..")
-                        continue
-                    }
-
-
-
+            var req: String = FCGIInterface.request.params.getProperty("QUERY_STRING")
+            if (req.isNotEmpty()){
+                var values: LinkedHashMap<String, String> = getValuesOfReq(req)
+                try{
+                    val acTime : Long = System.nanoTime()
+                    val hit: Boolean = checker.checkHit(Integer.parseInt(values.get("x")),Integer.parseInt(values.get("y")),Integer.parseInt(values.get("r")))
+                    sentResponse(hit,values.get("x")!!,values.get("y")!!,values.get("r")!!, acTime)
+                }catch (e: Exception){
+                    println("Smth went wrong bro..")
+                    continue
                 }
             }
         }
