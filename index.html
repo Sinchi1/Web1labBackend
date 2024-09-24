@@ -25,29 +25,32 @@
     <div class="input-side">
         <form>
             <div class="input-group">
-                <p>Выберите X:</p>
-                <div id="coord-x" class="radio-group">
-                    <label><input type="radio" name="x" value="-5">-5</label>
-                    <label><input type="radio" name="x" value="-4">-4</label>
-                    <label><input type="radio" name="x" value="-3">-3</label>
-                    <br>
-                    <label><input type="radio" name="x" value="-2">-2</label>
-                    <label><input type="radio" name="x" value="-1">-1</label>
-                    <label><input type="radio" name="x" value="0">0</label>
-                    <br>
-                    <label><input type="radio" name="x" value="1">1</label>
-                    <label><input type="radio" name="x" value="2">2</label>
-                    <label><input type="radio" name="x" value="3">3</label>
-                </div>
+                <fieldset>
+                    <legend>Choose X:</legend>
+                    <label><input type="radio" name="coord-x" value="-2"> -2</label><br>
+                    <label><input type="radio" name="coord-x" value="-1.5"> -1.5</label><br>
+                    <label><input type="radio" name="coord-x" value="-1"> -1</label><br>
+                    <label><input type="radio" name="coord-x" value="-0.5"> -0.5</label><br>
+                    <label><input type="radio" name="coord-x" value="0"> 0</label><br>
+                    <label><input type="radio" name="coord-x" value="0.5"> 0.5</label><br>
+                    <label><input type="radio" name="coord-x" value="1"> 1</label><br>
+                    <label><input type="radio" name="coord-x" value="1.5"> 1.5</label><br>
+                    <label><input type="radio" name="coord-x" value="2"> 2</label><br>
+                </fieldset>
                 <br>
-                <label for="coord-y">Введите Y: </label>
-                <input type="text" id="coord-y" name="coord-y" />
+                <label for="coord-y">Choose Y: </label>
+                <input type="text" class="plain2" id="coord-y" name="coord-y" />
                 <br>
                 <br>
-                <div>
-                <label for="coord-x"> Введите X:</label>
-                <input type="text" idx="coord-x" name="coord-x" />
-                </div>
+                <fieldset>
+                    <legend>Choose R:</legend>
+                    <label><input type="radio" name="coord-r" value="1"> 1</label><br>
+                    <label><input type="radio" name="coord-r" value="2"> 2</label><br>
+                    <label><input type="radio" name="coord-r" value="3"> 3</label><br>
+                    <label><input type="radio" name="coord-r" value="4"> 4</label><br>
+                    <label><input type="radio" name="coord-r" value="5"> 5</label><br>
+                </fieldset>
+                <br>
             </div>
             <br>
         <div class="btn">
@@ -62,10 +65,8 @@
     <!--таблица для результатов-->
     <div class="graph-side">
         <svg xmlns="http://www.w3.org/2000/svg" width="650" height="650">
-
             <!--точка для отрисовки попадания-->
             <circle cx="300" cy="300" class="dot" id="dot" r="5" visibility="visible" stroke="black" fill="black" stroke-opacity="0" fill-opacity="0"></circle>
-
             <!-- Оси со стрелками -->
             <line stroke="gray" x1="0" x2="600" y1="300" y2="300" />
             <line stroke="gray" x1="300" x2="300" y1="0" y2="600" />
@@ -132,5 +133,6 @@
 </p>
 </div>
 </body>
+<script type="module" src="src/main/front/main.js"></script>
 </html>
 

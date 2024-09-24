@@ -2,7 +2,6 @@ package org.example
 
 import com.fastcgi.FCGIInterface
 import org.example.Managers.Checker
-import java.nio.charset.StandardCharsets
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -38,8 +37,7 @@ fun main() {
                 """.formatted(responseString.encodeToByteArray().count(), responseString);
     }
 
-
-    while (fcgiInterface.FCGIaccept() >= 0){
+    while (fcgiInterface.FCGIaccept() >= 0 || true){
         try {
             methodName = FCGIInterface.request.params.getProperty("REQUEST_METHOD")
         } catch (e: Exception) {
