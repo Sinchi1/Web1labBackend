@@ -3,21 +3,30 @@
     background: linear-gradient(to right, red, orange, yellow, green, cyan, blue);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
 }
 
 .plain{
     font-family: Tahoma, serif;
-    color: white
+    background: linear-gradient(to right, red, orange, yellow, green, cyan, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+        /*color: white*/
+}
+
+.plain2{
+    font-family: Tahoma, serif;
+    color: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*color: white*/
 }
 
 .graph-side {
     height: 80vh;
     width: 40%;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid #000000;
     border-radius: 5px;
-    /*background-color: rgba(255, 255, 255, 0.82);*/
 }
 
 .container {

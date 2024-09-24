@@ -9,7 +9,7 @@ document.getElementById('send-btn').addEventListener('click', function(event) {
     const check = validator.check(x, y, r);
     if (check.allOk) {
         const coords = validator.getCoords();
-        fetch(`http://localhost:8080/fcgi-bin/fcgiserver.jar?x=${coords.x}&y=${coords.y}&r=${coords.r}`, {
+        fetch(`http://localhost:8080/fcgi-bin/lab1.jar?x=${coords.x}&y=${coords.y}&r=${coords.r}`, {
             method: 'GET',
         })
             .then(response => {
