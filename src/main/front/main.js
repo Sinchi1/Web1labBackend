@@ -3,13 +3,13 @@ const validator = new Validate();
 
 document.getElementById('send-btn').addEventListener('click', function(event) {
     event.preventDefault();
-    const x = document.querySelector('input[name="x"]:checked');
+    const x = document.querySelector('#coord-x');
     const y = document.querySelector('#coord-y');
     const r = document.querySelector('#coord-r');
     const check = validator.check(x, y, r);
     if (check.allOk) {
         const coords = validator.getCoords();
-        fetch(`http://localhost:8080/fcgi-bin/lab1.jar?x=${coords.x}&y=${coords.y}&r=${coords.r}`, {
+        fetch(`http://localhost:8080/httpd-root/fcgi-bin/lab1.jar?x=${coords.x}&y=${coords.y}&r=${coords.r}`, {
             method: 'GET',
         })
             .then(response => {

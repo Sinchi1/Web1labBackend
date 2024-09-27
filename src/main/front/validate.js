@@ -19,15 +19,12 @@ export default class Validate
         };
     }
     checkForNull(x, y, r){
-        if (x && y && r)
-            return true;
-        else
-            return false;
+        return !!(x && y && r);
     }
     checkX(x){
         x = parseFloat(x.value);
         this.x = x;
-        if ([-5, -4, -3, -2, -1, 0, 1, 2, 3].includes(x))
+        if ([-2,-1.5,-1.0,-0.5,0,0.5,1,1.5,2].includes(x))
             return true;
         else {
             this.log = "X нужно выбрать"
