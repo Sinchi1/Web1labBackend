@@ -1,15 +1,18 @@
 package AbstractContracts;
 
+import java.util.LinkedHashMap;
+
 public abstract class GraphicDotContainer {
-
-    private int x;
-    private int y;
-    private int r;
-
-    public GraphicDotContainer(int... args) {
-         x = args[0];
-         y = args[1];
-         r = args[0];
+    private LinkedHashMap<String,Integer> container = new LinkedHashMap<>();
+    public GraphicDotContainer(LinkedHashMap<String,Integer> input) {
+         container = input;
     }
 
+    public LinkedHashMap<String, Integer> getContainer() {
+        return container;
+    }
+
+    public Integer getParam(String key){
+        return container.get(key);
+    }
 }
