@@ -1,16 +1,18 @@
 package FastCgiServer;
 
+import AbstractContracts.ServerAbstract;
 import DataTransfer.GraphicDots;
 import Managers.Checker;
+import Managers.Printer;
 import Managers.StringFormater;
 import com.fastcgi.FCGIInterface;
 
-import java.util.LinkedHashMap;
-
-public class Server extends AbstractContracts.Server {
+public class Server extends ServerAbstract {
 
     StringFormater stringFormater = new StringFormater();
     GraphicDots graphicDots;
+
+    Printer printer = new Printer();
 
     Checker checker = new Checker();
 
@@ -27,14 +29,16 @@ public class Server extends AbstractContracts.Server {
                 String queryString = FCGIInterface.request.params.getProperty("QUERY_STRING");
                 if (!queryString.isEmpty()){
                     graphicDots = new GraphicDots(stringFormater.getValuesOfReq(queryString));
-                    long time;
-                    boolean hit;
+                    long time = 0;
+                    boolean hit = false;
                     try{
                        time = System.nanoTime();
                        hit = checker.checkHit(graphicDots);
                     } catch (Exception e) {
-                        System.exit(1);
+                        Printer.sentError("Smth went wrong...");
+                        continue;
                     }
+                    Printer.sentResponse(hit,graphicDots,time);
 
                 }
             }
