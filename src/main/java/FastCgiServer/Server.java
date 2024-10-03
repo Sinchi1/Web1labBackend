@@ -39,6 +39,7 @@ public class Server extends ServerAbstract {
                         continue;
                     }
                     Printer.sentResponse(hit,graphicDots,time);
+                    continue;
 
                 }
             }
