@@ -1,11 +1,13 @@
 package AbstractContracts;
 
+import DataTransfer.GraphicDots;
+
 public interface MathFiguresChecker {
 
-     boolean checkCircle(GraphicDotContainer graphicDotContainer);
+     boolean checkCircle(GraphicDots graphicDotContainer);
 
-     boolean checkTriangle(GraphicDotContainer graphicDotContainer);
+     boolean checkTriangle(GraphicDots graphicDotContainer);
 
-     boolean checkSquare(GraphicDotContainer graphicDotContainer);
+     boolean checkSquare(GraphicDots graphicDotContainer);
 
 }
