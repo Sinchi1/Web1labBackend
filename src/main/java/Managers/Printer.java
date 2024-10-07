@@ -9,9 +9,9 @@ import java.time.format.DateTimeFormatter;
 public class Printer {
 
     public static String sentResponse(boolean isShoot, GraphicDots graphicDots, long wt) {
-        int x = graphicDots.getParam("x");
-        int y = graphicDots.getParam("y");
-        int r = graphicDots.getParam("r");
+        int x = graphicDots.getParam("coord-x");
+        int y = graphicDots.getParam("coord-y");
+        int r = graphicDots.getParam("coord-r");
         String content = """
                 {"result":"%s",
                     "x":"%s",
