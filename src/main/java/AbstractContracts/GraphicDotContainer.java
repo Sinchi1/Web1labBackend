@@ -12,7 +12,4 @@ public abstract class GraphicDotContainer {
         return container;
     }
 
-    public Integer getParam(String key){
-        return container.get(key);
-    }
 }

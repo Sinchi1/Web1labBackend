@@ -38,9 +38,8 @@ public class Server extends ServerAbstract {
                         Printer.sentError("Smth went wrong...");
                         continue;
                     }
-                    Printer.sentResponse(hit,graphicDots,time);
-                    continue;
 
+                     Printer.sentResponse(hit,graphicDots,time);
                 }
             }
         }
