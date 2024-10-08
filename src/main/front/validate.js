@@ -33,20 +33,20 @@ export default class Validate
     }
 
     checkY(y) {
-        if (!/^(-?\d+(\.\d+)?)$/.test(y.value)){
+        if (!/^(-?\d+([.,]\d+)?)$/.test(y.value)){
             this.log = "Y должен содержать число"
             return false;
         }
-        y = parseFloat(y.value);
+        y = parseFloat(y.value.replace(",", "."));
         this.y = y;
         if (isNaN(y)) {
             this.log = "Y должен содержать число"
             return false;
         }
-        if (-3 <= y && y <= 5)
+        if (-5 <= y && y <= 5)
             return true;
         else {
-            this.log = "Значение Y должно быть от -3 до 5"
+            this.log = "Значение Y должно быть от -5 до 5"
             return false;
         }
     }

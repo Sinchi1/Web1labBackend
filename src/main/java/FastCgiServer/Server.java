@@ -12,7 +12,7 @@ public class Server extends ServerAbstract {
     StringFormater stringFormater = new StringFormater();
     GraphicDots graphicDots;
 
-    Printer printer = new Printer();
+    Printer printer;
 
     Checker checker = new Checker();
 

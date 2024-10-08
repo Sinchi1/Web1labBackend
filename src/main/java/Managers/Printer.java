@@ -2,6 +2,7 @@ package Managers;
 
 import DataTransfer.GraphicDots;
 
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -9,9 +10,9 @@ import java.time.format.DateTimeFormatter;
 public class Printer {
 
     public static void sentResponse(boolean isShoot, GraphicDots graphicDots, long wt) {
-        int x = graphicDots.getParam("x");
-        int y = graphicDots.getParam("y");
-        int r = graphicDots.getParam("r");
+        Double x = graphicDots.getParam("x");
+        Double y = graphicDots.getParam("y");
+        Double r = graphicDots.getParam("r");
         String content = """
                 {"result":"%s",
                     "x":"%s",
