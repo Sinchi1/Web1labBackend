@@ -2,20 +2,21 @@ package DataTransfer;
 
 import AbstractContracts.GraphicDotContainer;
 
+import java.math.BigDecimal;
 import java.util.LinkedHashMap;
 
 public class GraphicDots {
-    private LinkedHashMap<String,Integer> container = new LinkedHashMap<>();
+    private LinkedHashMap<String,Double> container = new LinkedHashMap<>();
 
-    public GraphicDots(LinkedHashMap<String,Integer> input) {
+    public GraphicDots(LinkedHashMap<String, Double> input) {
         container = input;
     }
 
-    public LinkedHashMap<String, Integer> getContainer() {
+    public LinkedHashMap<String, Double> getContainer() {
         return container;
     }
 
-    public Integer getParam(String key){
+    public Double getParam(String key){
         return container.get(key);
     }
 

@@ -1,14 +1,47 @@
 import Validate from './validate.js';
 const validator = new Validate();
 
+const checkboxR = document.querySelectorAll('input[name="coord-r"]');
+checkboxR.forEach((checkbox) => {
+    checkbox.addEventListener('click', function() {
+        // Если чекбокс был нажат и уже выбран, снимаем выбор
+        if (checkbox.checked) {
+            checkboxR.forEach((cb) => {
+                if (cb !== checkbox) {
+                    cb.checked = false; // Снимаем выбор с других
+                }
+            });
+        } else {
+            checkbox.checked = false; // Снимаем выбор, если клик по уже выбранному чекбоксу
+        }
+    });
+});
+
+const checkboxX = document.querySelectorAll('input[name="x"]');
+checkboxX.forEach((checkbox) => {
+    checkbox.addEventListener('click', function() {
+        // Если чекбокс был нажат и уже выбран, снимаем выбор
+        if (checkbox.checked) {
+            checkboxX.forEach((cb) => {
+                if (cb !== checkbox) {
+                    cb.checked = false; // Снимаем выбор с других
+                }
+            });
+        } else {
+            checkbox.checked = false; // Снимаем выбор, если клик по уже выбранному чекбоксу
+        }
+    });
+});
+
 document.getElementById('send-btn').addEventListener('click', function(event) {
     event.preventDefault();
-    const x = document.querySelector('#coord-x');
+    const x = document.querySelector('input[name="x"]:checked');
     const y = document.querySelector('#coord-y');
-    const r = document.querySelector('#coord-r');
+    const r = document.querySelector('input[name="coord-r"]:checked');
     const check = validator.check(x, y, r);
     if (check.allOk) {
         const coords = validator.getCoords();
+        console.log("[[LOG]] " + coords.y);
         fetch(`http://localhost:8080/httpd-root/fcgi-bin/lab1.jar?x=${coords.x}&y=${coords.y}&r=${coords.r}`, {
             method: 'GET',
         })
